@@ -1,4 +1,5 @@
 import Reveal from "./Reveal";
+import TiltCard from "./TiltCard";
 
 const projects = [
   {
@@ -46,6 +47,7 @@ export default function Work() {
         <div className="mt-14 flex flex-col gap-5">
           {projects.map((p, i) => (
             <Reveal key={p.name} delay={i * 0.05}>
+              <TiltCard className="rounded-3xl">
               <article className="ring-grad glass group grid items-stretch gap-6 overflow-hidden rounded-3xl p-3 transition-shadow duration-500 hover:shadow-[var(--shadow-card)] md:grid-cols-[1.1fr_1fr]">
                 <div
                   className={`relative grid min-h-60 place-items-center overflow-hidden rounded-2xl border border-line bg-gradient-to-br ${p.accent}`}
@@ -77,6 +79,7 @@ export default function Work() {
                   </span>
                 </div>
               </article>
+              </TiltCard>
             </Reveal>
           ))}
         </div>

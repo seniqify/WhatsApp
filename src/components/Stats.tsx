@@ -1,4 +1,5 @@
 import Reveal from "./Reveal";
+import Counter from "./Counter";
 
 const stats = [
   { value: "40+", label: "Products shipped" },
@@ -18,7 +19,7 @@ export default function Stats() {
               className="flex flex-col items-center gap-2 px-6 py-10 text-center"
             >
               <span className="font-display text-4xl font-semibold tracking-tight text-gradient md:text-5xl">
-                {s.value}
+                <Counter value={s.value} />
               </span>
               <span className="text-sm text-muted">{s.label}</span>
             </div>

@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "motion/react";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 const container = {
@@ -33,12 +34,25 @@ const tokenColor: Record<string, string> = {
 };
 
 export default function Hero() {
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+  const yOrbs = useTransform(scrollYProgress, [0, 1], [0, 140]);
+  const yCode = useTransform(scrollYProgress, [0, 1], [0, 90]);
+  const opacityCode = useTransform(scrollYProgress, [0, 0.8], [1, 0.3]);
+
   return (
-    <section id="top" className="relative overflow-hidden px-6 pt-36 pb-24 md:pt-44">
+    <section
+      id="top"
+      ref={ref}
+      className="relative overflow-hidden px-6 pt-36 pb-24 md:pt-44"
+    >
       {/* backdrop */}
       <div aria-hidden className="absolute inset-0 grid-bg [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,#000_60%,transparent)]" />
-      <div aria-hidden className="float-slow pointer-events-none absolute -top-40 left-1/4 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-violet/25 blur-[120px]" />
-      <div aria-hidden className="float-slow pointer-events-none absolute -top-20 right-1/4 h-[460px] w-[460px] translate-x-1/2 rounded-full bg-cyan/20 blur-[120px] [animation-delay:-6s]" />
+      <motion.div style={{ y: yOrbs }} aria-hidden className="float-slow pointer-events-none absolute -top-40 left-1/4 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-violet/25 blur-[120px]" />
+      <motion.div style={{ y: yOrbs }} aria-hidden className="float-slow pointer-events-none absolute -top-20 right-1/4 h-[460px] w-[460px] translate-x-1/2 rounded-full bg-cyan/20 blur-[120px] [animation-delay:-6s]" />
 
       <motion.div
         variants={container}
@@ -108,12 +122,15 @@ export default function Hero() {
 
       {/* code window visual */}
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease, delay: 0.5 }}
+        style={{ y: yCode, opacity: opacityCode }}
         className="relative mx-auto mt-16 max-w-3xl"
       >
-        <div className="ring-grad glass overflow-hidden rounded-2xl shadow-[var(--shadow-card)]">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease, delay: 0.5 }}
+          className="ring-grad glass overflow-hidden rounded-2xl shadow-[var(--shadow-card)]"
+        >
           <div className="flex items-center gap-2 border-b border-line px-4 py-3">
             <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
             <span className="h-3 w-3 rounded-full bg-[#febc2e]" />
@@ -132,7 +149,7 @@ export default function Hero() {
               </div>
             ))}
           </pre>
-        </div>
+        </motion.div>
       </motion.div>
     </section>
   );

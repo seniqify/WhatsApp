@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import Spotlight from "@/components/Spotlight";
+import ScrollProgress from "@/components/ScrollProgress";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -66,6 +68,8 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrains.variable} h-full antialiased`}
     >
       <body className="noise min-h-full flex flex-col bg-base text-text">
+        <ScrollProgress />
+        <Spotlight />
         {children}
       </body>
     </html>
