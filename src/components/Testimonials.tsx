@@ -1,4 +1,5 @@
 import Reveal from "./Reveal";
+import MaskReveal from "./MaskReveal";
 
 const quotes = [
   {
@@ -34,9 +35,15 @@ export default function Testimonials() {
       <div className="mx-auto max-w-6xl">
         <Reveal className="max-w-2xl">
           <p className="eyebrow">Proof</p>
-          <h2 className="mt-4 text-balance text-4xl font-semibold tracking-tight md:text-5xl">
-            Founders trust us with the{" "}
-            <span className="text-gradient">whole build</span>.
+          <h2 className="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">
+            <MaskReveal
+              lines={[
+                <>Founders trust us with the</>,
+                <>
+                  <span className="text-gradient">whole build</span>.
+                </>,
+              ]}
+            />
           </h2>
         </Reveal>
 

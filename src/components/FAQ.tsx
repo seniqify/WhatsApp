@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import Reveal from "./Reveal";
+import MaskReveal from "./MaskReveal";
 
 const faqs = [
   {
@@ -68,8 +69,8 @@ export default function FAQ() {
       <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1fr_1.4fr]">
         <Reveal>
           <p className="eyebrow">FAQ</p>
-          <h2 className="mt-4 text-balance text-4xl font-semibold tracking-tight md:text-5xl">
-            Questions, answered.
+          <h2 className="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">
+            <MaskReveal lines={[<>Questions, answered.</>]} />
           </h2>
           <p className="mt-5 leading-relaxed text-muted">
             Still unsure about something? Reach out — we reply within a day.

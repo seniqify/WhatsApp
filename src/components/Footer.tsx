@@ -11,8 +11,8 @@ const cols = [
   {
     title: "Connect",
     links: [
-      { label: "hello@seniqify.com", href: "mailto:hello@seniqify.com" },
-      { label: "WhatsApp", href: "https://wa.me/910000000000" },
+      { label: "seniqify@gmail.com", href: "mailto:seniqify@gmail.com" },
+      { label: "+91 86250 60631", href: "https://wa.me/918625060631" },
       { label: "Instagram", href: "#" },
       { label: "LinkedIn", href: "#" },
     ],

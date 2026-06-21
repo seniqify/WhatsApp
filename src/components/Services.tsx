@@ -1,4 +1,5 @@
 import Reveal from "./Reveal";
+import MaskReveal from "./MaskReveal";
 
 export default function Services() {
   return (
@@ -6,9 +7,16 @@ export default function Services() {
       <div className="mx-auto max-w-6xl">
         <Reveal className="max-w-2xl">
           <p className="eyebrow">Capabilities</p>
-          <h2 className="mt-4 text-balance text-4xl font-semibold tracking-tight md:text-5xl">
-            One studio for design,{" "}
-            <span className="text-gradient">engineering</span> &amp; growth.
+          <h2 className="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">
+            <MaskReveal
+              lines={[
+                <>One studio for design,</>,
+                <>
+                  <span className="text-gradient">engineering</span> &amp;
+                  growth.
+                </>,
+              ]}
+            />
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-muted">
             From first pixel to production traffic — we own the whole stack so

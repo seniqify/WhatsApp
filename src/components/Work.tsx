@@ -1,5 +1,6 @@
 import Reveal from "./Reveal";
 import TiltCard from "./TiltCard";
+import MaskReveal from "./MaskReveal";
 
 const projects = [
   {
@@ -35,8 +36,8 @@ export default function Work() {
         <Reveal className="flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-xl">
             <p className="eyebrow">Selected work</p>
-            <h2 className="mt-4 text-balance text-4xl font-semibold tracking-tight md:text-5xl">
-              Shipped &amp; in production.
+            <h2 className="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">
+              <MaskReveal lines={[<>Shipped &amp; in production.</>]} />
             </h2>
           </div>
           <p className="max-w-xs text-muted">

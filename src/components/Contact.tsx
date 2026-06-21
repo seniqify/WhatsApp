@@ -1,4 +1,5 @@
 import Reveal from "./Reveal";
+import MaskReveal from "./MaskReveal";
 
 export default function Contact() {
   return (
@@ -11,9 +12,15 @@ export default function Contact() {
 
           <div className="relative mx-auto max-w-2xl">
             <p className="eyebrow">Let&apos;s build</p>
-            <h2 className="mt-5 text-balance text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
-              Got something to ship?{" "}
-              <span className="text-gradient">Let&apos;s talk.</span>
+            <h2 className="mt-5 text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
+              <MaskReveal
+                lines={[
+                  <>Got something to ship?</>,
+                  <>
+                    <span className="text-gradient">Let&apos;s talk.</span>
+                  </>,
+                ]}
+              />
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-muted">
               Tell us what you&apos;re building. We&apos;ll reply within a day
@@ -23,14 +30,14 @@ export default function Contact() {
 
             <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a
-                href="mailto:hello@seniqify.com"
+                href="mailto:seniqify@gmail.com"
                 className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-violet to-indigo px-7 py-4 text-base font-medium text-white glow-accent transition-transform duration-300 hover:-translate-y-0.5"
               >
-                hello@seniqify.com
+                seniqify@gmail.com
                 <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
               </a>
               <a
-                href="https://wa.me/910000000000"
+                href="https://wa.me/918625060631"
                 className="glass inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 text-base font-medium text-text transition-colors hover:bg-white/10"
               >
                 Message on WhatsApp

@@ -1,4 +1,5 @@
 import Reveal from "./Reveal";
+import MaskReveal from "./MaskReveal";
 
 const steps = [
   {
@@ -32,8 +33,8 @@ export default function Process() {
       <div className="mx-auto max-w-6xl">
         <Reveal className="max-w-2xl">
           <p className="eyebrow">How we work</p>
-          <h2 className="mt-4 text-balance text-4xl font-semibold tracking-tight md:text-5xl">
-            A tight process, run by seniors.
+          <h2 className="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">
+            <MaskReveal lines={[<>A tight process, run by seniors.</>]} />
           </h2>
         </Reveal>
 

@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
+import MaskReveal from "./MaskReveal";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 const container = {
@@ -71,14 +72,19 @@ export default function Hero() {
           Booking engineering sprints for Q3 2026
         </motion.div>
 
-        <motion.h1
-          variants={item}
-          className="text-balance text-5xl font-semibold leading-[1.02] tracking-tight sm:text-6xl md:text-7xl lg:text-[5.25rem]"
-        >
-          We engineer{" "}
-          <span className="text-gradient">digital products</span>
-          <br className="hidden sm:block" /> that print revenue.
-        </motion.h1>
+        <h1 className="text-5xl font-semibold leading-[1.02] tracking-tight sm:text-6xl md:text-7xl lg:text-[5.25rem]">
+          <MaskReveal
+            mount
+            delay={0.2}
+            lines={[
+              <>
+                We engineer{" "}
+                <span className="text-gradient">digital products</span>
+              </>,
+              <>that print revenue.</>,
+            ]}
+          />
+        </h1>
 
         <motion.p
           variants={item}
