@@ -1,20 +1,20 @@
 @import "tailwindcss";
 
 @theme {
-  /* Dark tech palette — near-black surfaces + electric violet→cyan */
-  --color-base: #060609;
-  --color-surface: #0c0c12;
-  --color-elevated: #131320;
-  --color-line: #1e1e2e;
+  /* Deep-navy tech palette — rich blues + electric violet→cyan */
+  --color-base: #070b1a;
+  --color-surface: #0b1124;
+  --color-elevated: #111a33;
+  --color-line: #1e2b4d;
   --color-line-soft: #17172420;
 
-  --color-text: #ededf2;
-  --color-muted: #a1a1b5;
-  --color-faint: #6c6c82;
+  --color-text: #eaeefb;
+  --color-muted: #9aa6c6;
+  --color-faint: #5f6c8c;
 
   --color-violet: #8b5cf6;
   --color-indigo: #6366f1;
-  --color-blue: #3b82f6;
+  --color-blue: #4f7cff;
   --color-cyan: #22d3ee;
   --color-accent: #7c6cff;
   --color-accent-deep: #5b4ee0;
@@ -207,12 +207,75 @@
   }
 }
 
+@layer utilities {
+  .spin-slow {
+    animation: spin 26s linear infinite;
+  }
+  .spin-rev {
+    animation: spin 34s linear infinite reverse;
+  }
+  .badge-float {
+    animation: badgeFloat 7s ease-in-out infinite;
+  }
+  .twinkle {
+    animation: twinkle 5s ease-in-out infinite;
+  }
+  .pulse-core {
+    animation: pulseCore 5s ease-in-out infinite;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes badgeFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes pulseCore {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
   .marquee-track,
-  .float-slow {
+  .float-slow,
+  .spin-slow,
+  .spin-rev,
+  .badge-float,
+  .twinkle,
+  .pulse-core {
     animation: none;
   }
 }

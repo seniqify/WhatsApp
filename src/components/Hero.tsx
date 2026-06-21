@@ -3,6 +3,8 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import MaskReveal from "./MaskReveal";
+import HeroVisual from "./HeroVisual";
+import Particles from "./Particles";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 const container = {
@@ -14,149 +16,123 @@ const item = {
   show: { opacity: 1, y: 0, transition: { duration: 0.8, ease } },
 };
 
-const codeLines = [
-  { t: [["const ", "kw"], ["store", "var"], [" = ", "op"], ["await ", "kw"], ["seniqify", "fn"], [".launch({", "op"]] },
-  { t: [["  channel: ", "prop"], ["'whatsapp'", "str"], [",", "op"]] },
-  { t: [["  stack: ", "prop"], ["['next', 'edge', 'ai']", "str"], [",", "op"]] },
-  { t: [["  ship: ", "prop"], ["'7 days'", "str"], [",", "op"]] },
-  { t: [["});", "op"]] },
-  { t: [["", "op"]] },
-  { t: [["// → revenue, live.", "cm"]] },
-];
-
-const tokenColor: Record<string, string> = {
-  kw: "text-violet",
-  var: "text-cyan",
-  fn: "text-blue",
-  prop: "text-muted",
-  str: "text-emerald-300",
-  op: "text-faint",
-  cm: "text-faint italic",
-};
-
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
   });
-  const yOrbs = useTransform(scrollYProgress, [0, 1], [0, 140]);
-  const yCode = useTransform(scrollYProgress, [0, 1], [0, 90]);
-  const opacityCode = useTransform(scrollYProgress, [0, 0.8], [1, 0.3]);
+  const yGlow = useTransform(scrollYProgress, [0, 1], [0, 140]);
+  const yVisual = useTransform(scrollYProgress, [0, 1], [0, 70]);
 
   return (
     <section
       id="top"
       ref={ref}
-      className="relative overflow-hidden px-6 pt-36 pb-24 md:pt-44"
+      className="relative overflow-hidden px-6 pt-32 pb-20 md:pt-40 md:pb-28"
     >
       {/* backdrop */}
-      <div aria-hidden className="absolute inset-0 grid-bg [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,#000_60%,transparent)]" />
-      <motion.div style={{ y: yOrbs }} aria-hidden className="float-slow pointer-events-none absolute -top-40 left-1/4 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-violet/25 blur-[120px]" />
-      <motion.div style={{ y: yOrbs }} aria-hidden className="float-slow pointer-events-none absolute -top-20 right-1/4 h-[460px] w-[460px] translate-x-1/2 rounded-full bg-cyan/20 blur-[120px] [animation-delay:-6s]" />
-
+      <div
+        aria-hidden
+        className="absolute inset-0 grid-bg [mask-image:radial-gradient(ellipse_80%_70%_at_50%_0%,#000_55%,transparent)]"
+      />
       <motion.div
-        variants={container}
-        initial="hidden"
-        animate="show"
-        className="relative mx-auto max-w-5xl text-center"
-      >
-        <motion.div
-          variants={item}
-          className="glass mx-auto mb-8 inline-flex items-center gap-2.5 rounded-full px-3.5 py-1.5 text-sm text-muted"
-        >
-          <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan opacity-70" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan" />
-          </span>
-          Booking engineering sprints for Q3 2026
-        </motion.div>
-
-        <h1 className="text-5xl font-semibold leading-[1.02] tracking-tight sm:text-6xl md:text-7xl lg:text-[5.25rem]">
-          <MaskReveal
-            mount
-            delay={0.2}
-            lines={[
-              <>
-                We engineer{" "}
-                <span className="text-gradient">digital products</span>
-              </>,
-              <>that print revenue.</>,
-            ]}
-          />
-        </h1>
-
-        <motion.p
-          variants={item}
-          className="mx-auto mt-7 max-w-2xl text-balance text-lg leading-relaxed text-muted md:text-xl"
-        >
-          Seniqify is a senior design &amp; engineering studio building
-          high-performance websites, WhatsApp-native commerce, and AI-powered
-          tools — shipped fast, built to scale.
-        </motion.p>
-
-        <motion.div
-          variants={item}
-          className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row"
-        >
-          <a
-            href="#contact"
-            className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-violet to-indigo px-6 py-3.5 text-base font-medium text-white glow-accent transition-transform duration-300 hover:-translate-y-0.5"
-          >
-            Start a project
-            <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-          </a>
-          <a
-            href="#work"
-            className="glass inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-base font-medium text-text transition-colors hover:bg-white/10"
-          >
-            See our work
-          </a>
-        </motion.div>
-
-        <motion.div
-          variants={item}
-          className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-faint"
-        >
-          <span>★★★★★ Founder-rated</span>
-          <span className="hidden sm:inline">•</span>
-          <span>40+ products shipped</span>
-          <span className="hidden sm:inline">•</span>
-          <span>100 Lighthouse target</span>
-        </motion.div>
-      </motion.div>
-
-      {/* code window visual */}
+        style={{ y: yGlow }}
+        aria-hidden
+        className="float-slow pointer-events-none absolute -top-32 left-0 h-[520px] w-[520px] rounded-full bg-violet/20 blur-[130px]"
+      />
       <motion.div
-        style={{ y: yCode, opacity: opacityCode }}
-        className="relative mx-auto mt-16 max-w-3xl"
-      >
+        style={{ y: yGlow }}
+        aria-hidden
+        className="float-slow pointer-events-none absolute top-10 right-0 h-[480px] w-[480px] rounded-full bg-blue/20 blur-[130px] [animation-delay:-6s]"
+      />
+      <Particles />
+
+      <div className="relative mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2 lg:gap-6">
+        {/* left — copy */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease, delay: 0.5 }}
-          className="ring-grad glass overflow-hidden rounded-2xl shadow-[var(--shadow-card)]"
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className="text-center lg:text-left"
         >
-          <div className="flex items-center gap-2 border-b border-line px-4 py-3">
-            <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
-            <span className="h-3 w-3 rounded-full bg-[#febc2e]" />
-            <span className="h-3 w-3 rounded-full bg-[#28c840]" />
-            <span className="ml-3 font-mono text-xs text-faint">launch.ts</span>
-          </div>
-          <pre className="overflow-x-auto p-6 text-left font-mono text-sm leading-relaxed sm:text-base">
-            {codeLines.map((line, i) => (
-              <div key={i} className="flex gap-4">
-                <span className="select-none text-faint/50">{i + 1}</span>
-                <span>
-                  {line.t.map(([txt, c], j) => (
-                    <span key={j} className={tokenColor[c]}>{txt}</span>
-                  ))}
-                </span>
-              </div>
-            ))}
-          </pre>
+          <motion.div
+            variants={item}
+            className="glass mx-auto mb-7 inline-flex items-center gap-2.5 rounded-full px-3.5 py-1.5 text-sm text-muted lg:mx-0"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan opacity-70" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan" />
+            </span>
+            Booking engineering sprints for Q3 2026
+          </motion.div>
+
+          <h1 className="text-5xl font-semibold leading-[1.04] tracking-tight sm:text-6xl lg:text-[4.25rem]">
+            <MaskReveal
+              mount
+              delay={0.2}
+              lines={[
+                <>Specialized</>,
+                <>
+                  digital <span className="text-gradient">products</span>
+                </>,
+                <>that ship fast.</>,
+              ]}
+            />
+          </h1>
+
+          <motion.p
+            variants={item}
+            className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted lg:mx-0"
+          >
+            Seniqify is a senior design &amp; engineering studio building
+            high-performance websites, WhatsApp-native commerce, and AI-powered
+            tools — engineered to scale and built to convert.
+          </motion.p>
+
+          <motion.div
+            variants={item}
+            className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start"
+          >
+            <a
+              href="#contact"
+              className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-violet to-blue px-6 py-3.5 text-base font-medium text-white glow-accent transition-transform duration-300 hover:-translate-y-0.5"
+            >
+              Get Started
+              <span className="transition-transform duration-300 group-hover:translate-x-1">
+                →
+              </span>
+            </a>
+            <a
+              href="#work"
+              className="group inline-flex items-center gap-3 text-base font-medium text-text"
+            >
+              <span className="grid h-11 w-11 place-items-center rounded-full border border-line bg-elevated transition-colors group-hover:border-accent/60">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </span>
+              <span className="link-underline">Watch Video</span>
+            </a>
+          </motion.div>
+
+          <motion.div
+            variants={item}
+            className="mt-9 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm text-faint lg:justify-start"
+          >
+            <span>★★★★★ Founder-rated</span>
+            <span className="hidden sm:inline">•</span>
+            <span>40+ products shipped</span>
+            <span className="hidden sm:inline">•</span>
+            <span>100 Lighthouse target</span>
+          </motion.div>
         </motion.div>
-      </motion.div>
+
+        {/* right — visual */}
+        <motion.div style={{ y: yVisual }} className="relative">
+          <HeroVisual />
+        </motion.div>
+      </div>
     </section>
   );
 }

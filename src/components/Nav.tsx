@@ -53,9 +53,20 @@ export default function Nav() {
         <div className="flex items-center gap-3">
           <a
             href="#contact"
-            className="hidden rounded-full border border-line bg-elevated px-4 py-2 text-sm font-medium text-text transition-all duration-300 hover:border-accent/50 hover:shadow-[0_0_24px_-6px] hover:shadow-accent/70 md:inline-block"
+            className="hidden items-center gap-1.5 rounded-full border border-line bg-elevated/60 px-4 py-2 text-sm font-medium text-text transition-all duration-300 hover:border-accent/60 hover:shadow-[0_0_24px_-6px] hover:shadow-accent/70 md:inline-flex"
           >
-            Start a project
+            Login
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+              <polyline points="10 17 15 12 10 7" />
+              <line x1="15" y1="12" x2="3" y2="12" />
+            </svg>
+          </a>
+          <a
+            href="#contact"
+            className="hidden rounded-full bg-gradient-to-r from-violet to-blue px-4 py-2 text-sm font-medium text-white transition-transform duration-300 hover:-translate-y-0.5 md:inline-block"
+          >
+            Get Started
           </a>
           <button
             aria-label="Toggle menu"
@@ -83,9 +94,9 @@ export default function Nav() {
             <a
               href="#contact"
               onClick={() => setOpen(false)}
-              className="mt-2 rounded-full bg-gradient-to-r from-violet to-indigo px-4 py-2.5 text-center text-sm font-medium text-white"
+              className="mt-2 rounded-full bg-gradient-to-r from-violet to-blue px-4 py-2.5 text-center text-sm font-medium text-white"
             >
-              Start a project
+              Get Started
             </a>
           </div>
         </div>
