@@ -9,7 +9,7 @@ Live at [seniqify.com](https://seniqify.com).
 - React 19 + TypeScript
 - [Tailwind CSS v4](https://tailwindcss.com)
 - [Motion](https://motion.dev) for animation
-- Fonts: Fraunces (display) + Inter (text)
+- Dark tech theme — fonts: Space Grotesk (display) + Inter (text) + JetBrains Mono
 
 ## Develop
 

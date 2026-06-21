@@ -4,34 +4,34 @@ export default function Contact() {
   return (
     <section id="contact" className="relative z-10 px-6 py-24 md:py-32">
       <Reveal className="mx-auto max-w-5xl">
-        <div className="relative overflow-hidden rounded-[2rem] bg-ink px-8 py-16 text-cream md:px-16 md:py-24">
-          <div
-            aria-hidden
-            className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-clay/30 blur-3xl"
-          />
-          <div className="relative">
-            <p className="eyebrow !text-clay-soft">Let&apos;s build</p>
-            <h2 className="mt-5 max-w-2xl text-balance text-4xl leading-tight tracking-tight text-cream md:text-6xl">
-              Have a project in mind? Let&apos;s make it real.
+        <div className="ring-grad glass relative overflow-hidden rounded-[2rem] px-8 py-16 text-center md:px-16 md:py-24">
+          <div aria-hidden className="absolute inset-0 grid-bg opacity-50 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000,transparent)]" />
+          <div aria-hidden className="float-slow pointer-events-none absolute -right-20 -top-24 h-72 w-72 rounded-full bg-violet/30 blur-[100px]" />
+          <div aria-hidden className="float-slow pointer-events-none absolute -left-20 -bottom-24 h-72 w-72 rounded-full bg-cyan/25 blur-[100px] [animation-delay:-7s]" />
+
+          <div className="relative mx-auto max-w-2xl">
+            <p className="eyebrow">Let&apos;s build</p>
+            <h2 className="mt-5 text-balance text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
+              Got something to ship?{" "}
+              <span className="text-gradient">Let&apos;s talk.</span>
             </h2>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-cream/70">
+            <p className="mt-5 text-lg leading-relaxed text-muted">
               Tell us what you&apos;re building. We&apos;ll reply within a day
-              with honest thoughts and next steps — no pressure, no sales deck.
+              with honest thoughts and a clear next step — no pressure, no sales
+              deck.
             </p>
 
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a
                 href="mailto:hello@seniqify.com"
-                className="group inline-flex items-center justify-center gap-2 rounded-full bg-clay px-7 py-4 text-base font-medium text-white transition-transform duration-300 hover:-translate-y-0.5"
+                className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-violet to-indigo px-7 py-4 text-base font-medium text-white glow-accent transition-transform duration-300 hover:-translate-y-0.5"
               >
                 hello@seniqify.com
-                <span className="transition-transform duration-300 group-hover:translate-x-1">
-                  →
-                </span>
+                <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
               </a>
               <a
                 href="https://wa.me/910000000000"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-cream/25 px-7 py-4 text-base font-medium text-cream transition-colors hover:bg-cream/10"
+                className="glass inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 text-base font-medium text-text transition-colors hover:bg-white/10"
               >
                 Message on WhatsApp
               </a>
