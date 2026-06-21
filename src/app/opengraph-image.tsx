@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Seniqify — Design & engineering studio for modern commerce";
+export const alt = "Seniqify — WhatsApp-first business infrastructure for India";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -15,10 +15,10 @@ export default function Image() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "72px",
-          background: "#060609",
+          background: "#070b1a",
           backgroundImage:
-            "radial-gradient(900px circle at 20% 0%, rgba(124,108,255,0.35), transparent 45%), radial-gradient(900px circle at 100% 100%, rgba(34,211,238,0.25), transparent 45%)",
-          color: "#ededf2",
+            "radial-gradient(900px circle at 20% 0%, rgba(37,211,102,0.35), transparent 45%), radial-gradient(900px circle at 100% 100%, rgba(45,212,191,0.25), transparent 45%)",
+          color: "#eaeefb",
           fontFamily: "sans-serif",
         }}
       >
@@ -31,7 +31,7 @@ export default function Image() {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              background: "linear-gradient(135deg, #8b5cf6, #22d3ee)",
+              background: "linear-gradient(135deg, #25d366, #12a150)",
               fontSize: 34,
               fontWeight: 700,
               color: "#fff",
@@ -52,11 +52,10 @@ export default function Image() {
               maxWidth: 940,
             }}
           >
-            We engineer digital products that print revenue.
+            Your business, powered by WhatsApp.
           </div>
-          <div style={{ fontSize: 30, color: "#a1a1b5", maxWidth: 860 }}>
-            Senior design &amp; engineering studio — websites, WhatsApp commerce,
-            and AI tools.
+          <div style={{ fontSize: 30, color: "#9aa6c6", maxWidth: 860 }}>
+            WhatsApp API, storefronts &amp; automation for Indian businesses.
           </div>
         </div>
 
@@ -66,11 +65,11 @@ export default function Image() {
             alignItems: "center",
             justifyContent: "space-between",
             fontSize: 26,
-            color: "#6c6c82",
+            color: "#5f6c8c",
           }}
         >
           <span>seniqify.com</span>
-          <span>Next.js · Edge · AI</span>
+          <span>500+ businesses · ₹2Cr+ GMV</span>
         </div>
       </div>
     ),

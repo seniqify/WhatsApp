@@ -7,24 +7,24 @@ import MaskReveal from "./MaskReveal";
 
 const faqs = [
   {
-    q: "How fast can you ship?",
-    a: "Most projects see a live, interactive build within 7 days of kickoff. Full launches typically land in 3–6 weeks depending on scope.",
+    q: "Do I need the official WhatsApp Business API?",
+    a: "We set it up for you on the official Meta/WhatsApp Business Platform — verified sender, green tick eligible, no risk of bans. You can also start with PocketLink on a normal number.",
+  },
+  {
+    q: "How quickly can I go live?",
+    a: "Most businesses are live within a day. PocketLink storefronts can be set up the same evening — no code needed.",
   },
   {
     q: "What does it cost?",
-    a: "Projects are fixed-scope and quoted up front — no surprise hourly bills. Landing pages start small; full products are scoped after a quick call.",
+    a: "There's a free tier to get started. Paid plans are transparent and made for Indian MSME budgets — you only pay as you grow. Talk to sales for a quote.",
   },
   {
-    q: "Do we own the code?",
-    a: "Always. You get the full repository, clean and documented, with no lock-in. Host it anywhere you like.",
+    q: "Can it handle payments and delivery?",
+    a: "Yes. Accept UPI and cards via Razorpay right inside chat, and connect delivery partners so orders flow end-to-end.",
   },
   {
-    q: "Can you work with our existing stack?",
-    a: "Yes. We plug into your repo, design system, and tools — or set up a modern stack from scratch if you'd prefer.",
-  },
-  {
-    q: "What happens after launch?",
-    a: "We offer ongoing retainers for iteration, growth, and support. Or we hand off cleanly so your team can run with it.",
+    q: "Will my staff need training?",
+    a: "No. If your team can use WhatsApp, they can use Seniqify. Everything happens in the chats they already know.",
   },
 ];
 

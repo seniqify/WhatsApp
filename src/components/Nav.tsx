@@ -3,9 +3,9 @@
 import { useEffect, useState } from "react";
 
 const links = [
-  { href: "#services", label: "Services" },
-  { href: "#work", label: "Work" },
-  { href: "#process", label: "Process" },
+  { href: "#products", label: "Products" },
+  { href: "#how", label: "How it works" },
+  { href: "#customers", label: "Customers" },
   { href: "#faq", label: "FAQ" },
 ];
 
@@ -30,8 +30,10 @@ export default function Nav() {
     >
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
         <a href="#top" className="flex items-center gap-2.5">
-          <span className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-to-br from-violet to-cyan text-[15px] font-bold text-white shadow-[0_0_20px_-4px] shadow-violet/60">
-            S
+          <span className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-to-br from-wa to-wa-deep text-white shadow-[0_0_20px_-4px] shadow-wa/60">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2z" />
+            </svg>
           </span>
           <span className="font-display text-lg font-semibold tracking-tight">
             Seniqify
@@ -52,21 +54,16 @@ export default function Nav() {
 
         <div className="flex items-center gap-3">
           <a
-            href="#contact"
-            className="hidden items-center gap-1.5 rounded-full border border-line bg-elevated/60 px-4 py-2 text-sm font-medium text-text transition-all duration-300 hover:border-accent/60 hover:shadow-[0_0_24px_-6px] hover:shadow-accent/70 md:inline-flex"
+            href="https://wa.me/918625060631"
+            className="hidden items-center gap-1.5 rounded-full border border-line bg-elevated/60 px-4 py-2 text-sm font-medium text-text transition-all duration-300 hover:border-wa/60 hover:shadow-[0_0_24px_-6px] hover:shadow-wa/70 md:inline-flex"
           >
-            Login
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
-              <polyline points="10 17 15 12 10 7" />
-              <line x1="15" y1="12" x2="3" y2="12" />
-            </svg>
+            Talk to Sales
           </a>
           <a
             href="#contact"
-            className="hidden rounded-full bg-gradient-to-r from-violet to-blue px-4 py-2 text-sm font-medium text-white transition-transform duration-300 hover:-translate-y-0.5 md:inline-block"
+            className="hidden rounded-full bg-gradient-to-r from-wa to-emerald px-4 py-2 text-sm font-semibold text-base transition-transform duration-300 hover:-translate-y-0.5 md:inline-block"
           >
-            Get Started
+            Get Started Free
           </a>
           <button
             aria-label="Toggle menu"
@@ -94,9 +91,9 @@ export default function Nav() {
             <a
               href="#contact"
               onClick={() => setOpen(false)}
-              className="mt-2 rounded-full bg-gradient-to-r from-violet to-blue px-4 py-2.5 text-center text-sm font-medium text-white"
+              className="mt-2 rounded-full bg-gradient-to-r from-wa to-emerald px-4 py-2.5 text-center text-sm font-semibold text-base"
             >
-              Get Started
+              Get Started Free
             </a>
           </div>
         </div>

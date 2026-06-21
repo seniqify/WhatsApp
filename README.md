@@ -1,6 +1,7 @@
 # Seniqify
 
-Marketing site for **Seniqify** — a design & build studio for modern commerce.
+Marketing site for **Seniqify** — WhatsApp-first business infrastructure for India
+(WhatsApp API, PocketLink storefronts, websites, and automation).
 Live at [seniqify.com](https://seniqify.com).
 
 ## Stack

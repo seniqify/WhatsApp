@@ -1,10 +1,9 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
-import Services from "@/components/Services";
-import Stats from "@/components/Stats";
-import Work from "@/components/Work";
-import Process from "@/components/Process";
+import Products from "@/components/Products";
+import SocialProof from "@/components/SocialProof";
+import HowItWorks from "@/components/HowItWorks";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
@@ -17,10 +16,9 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <Marquee />
-        <Services />
-        <Stats />
-        <Work />
-        <Process />
+        <Products />
+        <SocialProof />
+        <HowItWorks />
         <Testimonials />
         <FAQ />
         <Contact />

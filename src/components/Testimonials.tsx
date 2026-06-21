@@ -4,43 +4,43 @@ import MaskReveal from "./MaskReveal";
 const quotes = [
   {
     quote:
-      "They built our WhatsApp store in a week and sales started the same day. It just works — and it looks premium.",
-    name: "Retail founder",
-    role: "D2C, Solapur",
+      "We set up our WhatsApp store in an evening and got 3 orders the same night. My customers love that they can just chat and pay.",
+    name: "Priya S.",
+    role: "Boutique owner, Pune",
     big: true,
   },
   {
     quote:
-      "The fastest, cleanest handoff I've had. Zero spaghetti, real documentation, and it flies on mobile.",
-    name: "Product lead",
-    role: "SaaS",
+      "The API automation handles 80% of our customer queries now. We finally sleep at night.",
+    name: "Rahul M.",
+    role: "D2C brand, Bengaluru",
   },
   {
     quote:
-      "Design that actually converts. Our landing page beat the old one by double.",
-    name: "Growth marketer",
-    role: "F&B",
+      "Payments, catalog, delivery — all inside WhatsApp. My staff didn't need any training.",
+    name: "Imran K.",
+    role: "Grocery store, Solapur",
   },
   {
     quote:
-      "Senior people, no middlemen. They treated our budget like their own and shipped early.",
-    name: "Startup CEO",
-    role: "Fintech",
+      "Our website + WhatsApp combo doubled enquiries in a month. Best money we've spent.",
+    name: "Anita R.",
+    role: "Salon chain, Mumbai",
   },
 ];
 
 export default function Testimonials() {
   return (
-    <section id="studio" className="relative z-10 px-6 py-24 md:py-32">
+    <section id="customers" className="relative z-10 px-6 py-24 md:py-32">
       <div className="mx-auto max-w-6xl">
         <Reveal className="max-w-2xl">
-          <p className="eyebrow">Proof</p>
+          <p className="eyebrow">Customers</p>
           <h2 className="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">
             <MaskReveal
               lines={[
-                <>Founders trust us with the</>,
+                <>Loved by founders</>,
                 <>
-                  <span className="text-gradient">whole build</span>.
+                  across <span className="text-gradient">India</span>.
                 </>,
               ]}
             />
@@ -65,7 +65,7 @@ export default function Testimonials() {
                   &ldquo;{q.quote}&rdquo;
                 </blockquote>
                 <figcaption className="mt-8 flex items-center gap-3">
-                  <span className="grid h-10 w-10 place-items-center rounded-full bg-gradient-to-br from-violet to-cyan text-sm font-semibold text-white">
+                  <span className="grid h-10 w-10 place-items-center rounded-full bg-gradient-to-br from-wa to-teal text-sm font-semibold text-white">
                     {q.name.charAt(0)}
                   </span>
                   <span className="text-sm">

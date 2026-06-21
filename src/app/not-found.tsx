@@ -9,7 +9,7 @@ export default function NotFound() {
       />
       <div
         aria-hidden
-        className="float-slow pointer-events-none absolute top-10 left-1/2 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-violet/20 blur-[120px]"
+        className="float-slow pointer-events-none absolute top-10 left-1/2 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-wa/20 blur-[120px]"
       />
 
       <div className="relative">
@@ -24,7 +24,7 @@ export default function NotFound() {
         <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Link
             href="/"
-            className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-violet to-indigo px-6 py-3.5 text-base font-medium text-white glow-accent transition-transform duration-300 hover:-translate-y-0.5"
+            className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-wa to-emerald px-6 py-3.5 text-base font-semibold text-base glow-accent transition-transform duration-300 hover:-translate-y-0.5"
           >
             Back home
             <span className="transition-transform duration-300 group-hover:translate-x-1">

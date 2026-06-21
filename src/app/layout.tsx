@@ -3,6 +3,7 @@ import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Spotlight from "@/components/Spotlight";
 import ScrollProgress from "@/components/ScrollProgress";
+import WhatsAppWidget from "@/components/WhatsAppWidget";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -27,33 +28,34 @@ const siteUrl = "https://seniqify.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Seniqify — Design & build studio for modern commerce",
+    default: "Seniqify — WhatsApp-first business infrastructure for India",
     template: "%s · Seniqify",
   },
   description:
-    "Seniqify is a digital studio crafting fast websites, WhatsApp-native storefronts, and brand systems for ambitious businesses.",
+    "Seniqify gives Indian businesses the WhatsApp API, storefronts, and automation to sell, support, and scale — right where their customers already chat.",
   keywords: [
-    "web design studio",
+    "WhatsApp API India",
+    "WhatsApp Business Platform",
     "WhatsApp commerce",
-    "Next.js development",
-    "brand design",
-    "ecommerce storefront",
+    "PocketLink",
+    "WhatsApp storefront",
+    "MSME automation",
     "Seniqify",
   ],
   authors: [{ name: "Seniqify" }],
   openGraph: {
     type: "website",
     url: siteUrl,
-    title: "Seniqify — Design & build studio for modern commerce",
+    title: "Seniqify — WhatsApp-first business infrastructure for India",
     description:
-      "Fast websites, WhatsApp-native storefronts, and brand systems for ambitious businesses.",
+      "WhatsApp API, storefronts, and automation to sell, support, and scale where your customers already chat.",
     siteName: "Seniqify",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Seniqify — Design & build studio",
+    title: "Seniqify — WhatsApp-first business infrastructure",
     description:
-      "Fast websites, WhatsApp-native storefronts, and brand systems for ambitious businesses.",
+      "WhatsApp API, storefronts, and automation for Indian businesses.",
   },
 };
 
@@ -71,6 +73,7 @@ export default function RootLayout({
         <ScrollProgress />
         <Spotlight />
         {children}
+        <WhatsAppWidget />
       </body>
     </html>
   );
