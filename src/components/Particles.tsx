@@ -23,14 +23,15 @@ export default function Particles() {
       {dots.map((p, i) => (
         <span
           key={i}
-          className="twinkle absolute rounded-full bg-gradient-to-br from-wa to-teal"
+          className="twinkle absolute rounded-full"
           style={{
             left: p.x,
             top: p.y,
             width: p.s,
             height: p.s,
             animationDelay: p.d,
-            boxShadow: "0 0 8px 1px rgba(37,211,102,0.6)",
+            backgroundColor: "var(--brand, #25d366)",
+            boxShadow: "0 0 8px 1px var(--brand, #25d366)",
           }}
         />
       ))}

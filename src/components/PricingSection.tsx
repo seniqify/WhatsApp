@@ -6,7 +6,7 @@ type Charge = { label: string; value: string };
 
 function Check() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="mt-0.5 shrink-0 text-wa">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="brand-fg mt-0.5 shrink-0">
       <path d="M20 6 9 17l-5-5" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
@@ -16,11 +16,11 @@ function Card({ plan, charges }: { plan: PricingPlan; charges?: Charge[] }) {
   const inner = (
     <article
       className={`flex h-full flex-col rounded-3xl p-7 ${
-        plan.featured ? "bg-surface" : "ring-grad glass"
+        plan.featured ? "bg-surface" : "brand-ring glass"
       }`}
     >
       {plan.featured && (
-        <span className="mb-4 inline-flex w-fit items-center gap-1.5 rounded-full bg-wa/15 px-3 py-1 text-xs font-semibold text-wa">
+        <span className="brand-soft mb-4 inline-flex w-fit items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold">
           ★ Best Value
         </span>
       )}
@@ -43,8 +43,8 @@ function Card({ plan, charges }: { plan: PricingPlan; charges?: Charge[] }) {
         href="#contact"
         className={`mt-5 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-all duration-300 ${
           plan.featured
-            ? "bg-gradient-to-r from-wa to-emerald text-base glow-accent hover:-translate-y-0.5"
-            : "border border-line bg-elevated text-text hover:border-wa/60"
+            ? "brand-btn hover:-translate-y-0.5"
+            : "brand-hover-border border border-line bg-elevated text-text"
         }`}
       >
         Get Started
@@ -58,7 +58,7 @@ function Card({ plan, charges }: { plan: PricingPlan; charges?: Charge[] }) {
             {plan.markup && (
               <span
                 className={`rounded-full px-2 py-0.5 text-[10px] font-semibold ${
-                  plan.markup === "NO MARKUP" ? "bg-wa/15 text-wa" : "bg-blue/15 text-blue"
+                  plan.markup === "NO MARKUP" ? "brand-soft" : "bg-blue/15 text-blue"
                 }`}
               >
                 {plan.markup}
@@ -97,7 +97,7 @@ function Card({ plan, charges }: { plan: PricingPlan; charges?: Charge[] }) {
 
   if (plan.featured) {
     return (
-      <div className="rounded-3xl bg-gradient-to-b from-wa via-teal to-wa/40 p-px shadow-[0_0_50px_-18px_rgba(37,211,102,0.7)] lg:-my-3">
+      <div className="brand-border-grad rounded-3xl p-px shadow-[0_0_50px_-18px_var(--brand)] lg:-my-3">
         {inner}
       </div>
     );
@@ -131,7 +131,7 @@ export default function PricingSection({
               lines={[
                 <>{heading.lead}</>,
                 <>
-                  <span className="text-gradient">{heading.accent}</span>
+                  <span className="brand-text">{heading.accent}</span>
                 </>,
               ]}
             />

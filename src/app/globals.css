@@ -193,6 +193,72 @@
   }
 }
 
+/* ---- per-product brand theming (vars set on a wrapper) ---- */
+@layer utilities {
+  .brand-text {
+    background: linear-gradient(100deg, var(--brand), var(--brand-2) 75%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .brand-fg {
+    color: var(--brand);
+  }
+  .brand-bg {
+    background-color: var(--brand);
+  }
+  .brand-soft {
+    background-color: color-mix(in srgb, var(--brand) 15%, transparent);
+    color: var(--brand);
+  }
+  .brand-tile {
+    background-image: linear-gradient(135deg, var(--brand), var(--brand-2));
+    color: #fff;
+  }
+  .brand-btn {
+    background-image: linear-gradient(to right, var(--brand), var(--brand-2));
+    color: #fff;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06),
+      0 14px 40px -12px var(--brand);
+  }
+  .brand-border-grad {
+    background-image: linear-gradient(
+      to bottom,
+      var(--brand),
+      var(--brand-2),
+      color-mix(in srgb, var(--brand) 30%, transparent)
+    );
+  }
+  .brand-hover-border:hover {
+    border-color: color-mix(in srgb, var(--brand) 60%, transparent);
+  }
+  .brand-ring {
+    position: relative;
+  }
+  .brand-ring::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      130deg,
+      color-mix(in srgb, var(--brand) 60%, transparent),
+      color-mix(in srgb, var(--brand-2) 25%, transparent),
+      transparent 60%
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.45s var(--ease-out-soft);
+  }
+  .brand-ring:hover::before {
+    opacity: 1;
+  }
+}
+
 @keyframes marquee {
   from {
     transform: translateX(0);

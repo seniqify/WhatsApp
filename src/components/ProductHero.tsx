@@ -1,7 +1,7 @@
 import Reveal from "./Reveal";
 import MaskReveal from "./MaskReveal";
 import Particles from "./Particles";
-import ProductMock from "./ProductMock";
+import ProductInteractive from "./ProductInteractive";
 import type { Product } from "@/lib/products";
 
 function isExternal(href: string) {
@@ -18,15 +18,23 @@ export default function ProductHero({ product }: { product: Product }) {
         aria-hidden
         className="absolute inset-0 grid-bg [mask-image:radial-gradient(ellipse_80%_70%_at_50%_0%,#000_55%,transparent)]"
       />
-      <div aria-hidden className="float-slow pointer-events-none absolute -top-32 left-0 h-[520px] w-[520px] rounded-full bg-wa/15 blur-[130px]" />
-      <div aria-hidden className="float-slow pointer-events-none absolute top-10 right-0 h-[480px] w-[480px] rounded-full bg-teal/15 blur-[130px] [animation-delay:-6s]" />
+      <div
+        aria-hidden
+        className="float-slow pointer-events-none absolute -top-32 left-0 h-[520px] w-[520px] rounded-full opacity-20 blur-[130px]"
+        style={{ backgroundColor: "var(--brand)" }}
+      />
+      <div
+        aria-hidden
+        className="float-slow pointer-events-none absolute top-10 right-0 h-[480px] w-[480px] rounded-full opacity-20 blur-[130px] [animation-delay:-6s]"
+        style={{ backgroundColor: "var(--brand-2)" }}
+      />
       <Particles />
 
       <div className="relative mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-2 lg:gap-8">
         <div className="text-center lg:text-left">
           <Reveal>
             <div className="glass mx-auto mb-7 inline-flex items-center gap-2.5 rounded-full px-3.5 py-1.5 text-sm text-muted lg:mx-0">
-              <span className="text-wa">{product.icon}</span>
+              <span className="brand-fg">{product.icon}</span>
               {product.eyebrow}
             </div>
           </Reveal>
@@ -38,7 +46,7 @@ export default function ProductHero({ product }: { product: Product }) {
               lines={[
                 <>{product.headline.lead}</>,
                 <>
-                  <span className="text-gradient">{product.headline.accent}</span>
+                  <span className="brand-text">{product.headline.accent}</span>
                 </>,
               ]}
             />
@@ -54,7 +62,7 @@ export default function ProductHero({ product }: { product: Product }) {
             <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start">
               <a
                 href={product.primaryCta.href}
-                className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-wa to-emerald px-6 py-3.5 text-base font-semibold text-base glow-accent transition-transform duration-300 hover:-translate-y-0.5"
+                className="brand-btn group inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-base font-semibold transition-transform duration-300 hover:-translate-y-0.5"
               >
                 {product.primaryCta.label}
                 <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
@@ -74,12 +82,15 @@ export default function ProductHero({ product }: { product: Product }) {
                 )}
               </a>
             </div>
+            <p className="mt-4 text-sm text-faint">
+              ↓ Try the live demo — it&apos;s interactive.
+            </p>
           </Reveal>
         </div>
 
-        <Reveal delay={0.2} className="relative">
-          <ProductMock slug={product.slug} />
-        </Reveal>
+        <div className="relative">
+          <ProductInteractive slug={product.slug} />
+        </div>
       </div>
     </section>
   );

@@ -18,6 +18,7 @@ export type Product = {
   name: string;
   navDesc: string;
   icon: ReactNode;
+  theme: { brand: string; brand2: string };
   eyebrow: string;
   headline: { lead: string; accent: string };
   subhead: string;
@@ -139,6 +140,7 @@ export const products: Record<string, Product> = {
     name: "WhatsApp API",
     navDesc: "Send, automate & broadcast at scale",
     icon: ic.message,
+    theme: { brand: "#25d366", brand2: "#2dd4bf" },
     eyebrow: "WhatsApp Business API",
     headline: { lead: "Scale conversations,", accent: "not your team." },
     subhead:
@@ -175,6 +177,7 @@ export const products: Record<string, Product> = {
     name: "PocketLink",
     navDesc: "WhatsApp-native storefront in minutes",
     icon: ic.cart,
+    theme: { brand: "#38bdf8", brand2: "#22d3ee" },
     eyebrow: "WhatsApp Storefront",
     headline: { lead: "Your store,", accent: "inside WhatsApp." },
     subhead:
@@ -236,6 +239,7 @@ export const products: Record<string, Product> = {
     name: "Website Design",
     navDesc: "Conversion-focused sites for India",
     icon: ic.globe,
+    theme: { brand: "#8b5cf6", brand2: "#6366f1" },
     eyebrow: "Website Design",
     headline: { lead: "Websites that", accent: "win customers." },
     subhead:
@@ -293,6 +297,7 @@ export const products: Record<string, Product> = {
     name: "Custom Solutions",
     navDesc: "Automation & AI built for you",
     icon: ic.handshake,
+    theme: { brand: "#f59e0b", brand2: "#fb7185" },
     eyebrow: "Custom Solutions",
     headline: { lead: "Automation &", accent: "AI, your way." },
     subhead:

@@ -16,8 +16,8 @@ export default function Benefits({ product }: { product: Product }) {
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {product.benefits.map((b, i) => (
             <Reveal key={b.title} delay={i * 0.06}>
-              <article className="ring-grad glass h-full rounded-3xl p-7">
-                <span className="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-wa to-teal text-white shadow-lg">
+              <article className="brand-ring glass h-full rounded-3xl p-7">
+                <span className="brand-tile grid h-12 w-12 place-items-center rounded-2xl shadow-lg">
                   {b.icon}
                 </span>
                 <h3 className="mt-5 text-xl font-semibold tracking-tight">

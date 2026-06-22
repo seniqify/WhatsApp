@@ -8,7 +8,7 @@ function isExternal(href: string) {
 
 function Check() {
   return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="mt-0.5 shrink-0 text-wa">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="brand-fg mt-0.5 shrink-0">
       <path d="M20 6 9 17l-5-5" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
@@ -29,7 +29,7 @@ export default function ProductDemo({ product }: { product: Product }) {
         </Reveal>
 
         <Reveal className="mt-14">
-          <div className="ring-grad glass grid gap-8 rounded-3xl p-8 md:p-10 lg:grid-cols-[1.5fr_1fr]">
+          <div className="brand-ring glass grid gap-8 rounded-3xl p-8 md:p-10 lg:grid-cols-[1.5fr_1fr]">
             <ul className="grid gap-x-8 gap-y-4 sm:grid-cols-2">
               {product.demoFeatures.map((f) => (
                 <li key={f} className="flex items-start gap-3 text-text">
@@ -40,7 +40,7 @@ export default function ProductDemo({ product }: { product: Product }) {
             </ul>
 
             <div className="relative overflow-hidden rounded-2xl border border-line bg-base/50 p-7">
-              <div aria-hidden className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-wa/20 blur-3xl" />
+              <div aria-hidden className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full opacity-25 blur-3xl" style={{ backgroundColor: "var(--brand)" }} />
               <h3 className="relative text-xl font-semibold tracking-tight">
                 Manage it all in one place
               </h3>
@@ -52,7 +52,7 @@ export default function ProductDemo({ product }: { product: Product }) {
                 {...(isExternal(product.secondaryCta.href)
                   ? { target: "_blank", rel: "noopener noreferrer" }
                   : {})}
-                className="relative mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-wa to-emerald px-5 py-3 text-sm font-semibold text-base transition-transform duration-300 hover:-translate-y-0.5"
+                className="brand-btn relative mt-6 inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-transform duration-300 hover:-translate-y-0.5"
               >
                 {product.secondaryCta.label}
                 <span>→</span>
