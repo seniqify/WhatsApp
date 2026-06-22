@@ -1,0 +1,30 @@
+import Nav from "./Nav";
+import Footer from "./Footer";
+import Contact from "./Contact";
+import ProductHero from "./ProductHero";
+import Benefits from "./Benefits";
+import ProductDemo from "./ProductDemo";
+import PricingSection from "./PricingSection";
+import type { Product } from "@/lib/products";
+
+export default function ProductTemplate({ product }: { product: Product }) {
+  return (
+    <>
+      <Nav />
+      <main className="flex-1">
+        <ProductHero product={product} />
+        <Benefits product={product} />
+        <ProductDemo product={product} />
+        <PricingSection
+          plans={product.plans}
+          charges={product.charges}
+          note={product.priceNote}
+          heading={{ lead: `${product.name} pricing`, accent: "made simple." }}
+          subhead="Transparent plans with no surprises. Start free or talk to us for a custom fit."
+        />
+        <Contact />
+      </main>
+      <Footer />
+    </>
+  );
+}
