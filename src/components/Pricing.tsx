@@ -13,7 +13,7 @@ type Plan = {
 };
 
 const charges = [
-  { label: "Marketing", value: "₹1.90" },
+  { label: "Marketing", value: "₹1.09" },
   { label: "Utility", value: "₹0.25" },
   { label: "Authentication", value: "₹0.25" },
 ];
