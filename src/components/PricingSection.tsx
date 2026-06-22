@@ -1,5 +1,6 @@
 import Reveal from "./Reveal";
 import MaskReveal from "./MaskReveal";
+import SubscribeButton from "./SubscribeButton";
 import type { PricingPlan } from "@/lib/products";
 
 type Charge = { label: string; value: string };
@@ -12,7 +13,20 @@ function Check() {
   );
 }
 
-function Card({ plan, charges }: { plan: PricingPlan; charges?: Charge[] }) {
+function Card({
+  plan,
+  charges,
+  enablePayments,
+}: {
+  plan: PricingPlan;
+  charges?: Charge[];
+  enablePayments?: boolean;
+}) {
+  const ctaClass = `mt-5 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-all duration-300 disabled:opacity-60 ${
+    plan.featured
+      ? "brand-btn hover:-translate-y-0.5"
+      : "brand-hover-border border border-line bg-elevated text-text"
+  }`;
   const inner = (
     <article
       className={`flex h-full flex-col rounded-3xl p-7 ${
@@ -39,17 +53,18 @@ function Card({ plan, charges }: { plan: PricingPlan; charges?: Charge[] }) {
         {plan.tagline}
       </p>
 
-      <a
-        href="#contact"
-        className={`mt-5 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-all duration-300 ${
-          plan.featured
-            ? "brand-btn hover:-translate-y-0.5"
-            : "brand-hover-border border border-line bg-elevated text-text"
-        }`}
-      >
-        Get Started
-        <span>→</span>
-      </a>
+      {enablePayments && plan.planKey ? (
+        <SubscribeButton
+          plan={plan.planKey}
+          label={plan.price === "₹0" ? "Get Started" : "Subscribe"}
+          className={ctaClass}
+        />
+      ) : (
+        <a href="#contact" className={ctaClass}>
+          Get Started
+          <span>→</span>
+        </a>
+      )}
 
       {charges && (
         <div className="mt-6 rounded-2xl border border-line bg-base/50 p-4">
@@ -109,12 +124,14 @@ export default function PricingSection({
   plans,
   charges,
   note,
+  enablePayments,
   heading = { lead: "Simple plans that", accent: "scale with you." },
   subhead = "Transparent pricing with no surprises. Upgrade or cancel anytime.",
 }: {
   plans: PricingPlan[];
   charges?: Charge[];
   note?: string;
+  enablePayments?: boolean;
   heading?: { lead: string; accent: string };
   subhead?: string;
 }) {
@@ -142,7 +159,7 @@ export default function PricingSection({
         <div className={`mt-16 grid items-start gap-6 sm:grid-cols-2 ${cols}`}>
           {plans.map((plan, i) => (
             <Reveal key={plan.name} delay={i * 0.07} className="h-full">
-              <Card plan={plan} charges={charges} />
+              <Card plan={plan} charges={charges} enablePayments={enablePayments} />
             </Reveal>
           ))}
         </div>

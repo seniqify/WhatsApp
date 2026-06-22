@@ -9,6 +9,7 @@ export type PricingPlan = {
   tier?: string;
   features: string[];
   featured?: boolean;
+  planKey?: string; // Razorpay subscription plan key (autopay)
 };
 
 export type Benefit = { title: string; body: string; icon: ReactNode };
@@ -89,6 +90,7 @@ const apiPlans: PricingPlan[] = [
     tagline: "Everything you need to get started on WhatsApp.",
     markup: "MARKUP INCLUDED",
     tier: "BASIC",
+    planKey: "broadcast",
     features: [
       "Free Blue Tick verification",
       "Unlimited users",
@@ -107,6 +109,7 @@ const apiPlans: PricingPlan[] = [
     markup: "NO MARKUP",
     tier: "GROWTH",
     featured: true,
+    planKey: "professional",
     features: [
       "Everything in Broadcast",
       "Dedicated relationship manager",
@@ -122,6 +125,7 @@ const apiPlans: PricingPlan[] = [
     tagline: "The complete platform for scale and automation.",
     markup: "NO MARKUP",
     tier: "SCALE",
+    planKey: "fullsuite",
     features: [
       "Everything in Professional",
       "Team inbox: unlimited agents",

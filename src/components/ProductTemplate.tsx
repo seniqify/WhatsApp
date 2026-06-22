@@ -25,6 +25,7 @@ export default function ProductTemplate({ product }: { product: Product }) {
             plans={product.plans}
             charges={product.charges}
             note={product.priceNote}
+            enablePayments={product.slug === "whatsapp-api"}
             heading={{ lead: `${product.name} pricing`, accent: "made simple." }}
             subhead="Transparent plans with no surprises. Start free or talk to us for a custom fit."
           />
