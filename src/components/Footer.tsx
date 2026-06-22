@@ -12,9 +12,9 @@ const cols = [
     title: "Company",
     links: [
       { label: "How it works", href: "#how" },
+      { label: "Pricing", href: "#pricing" },
       { label: "Customers", href: "#customers" },
       { label: "FAQ", href: "#faq" },
-      { label: "Get started", href: "#contact" },
     ],
   },
   {
