@@ -27,6 +27,7 @@ declare global {
 }
 
 const SCRIPT = "https://checkout.razorpay.com/v1/checkout.js";
+const FN = "https://uoyqbexemoheipwrtkcz.supabase.co/functions/v1";
 
 function loadScript(): Promise<boolean> {
   return new Promise((resolve) => {
@@ -55,15 +56,15 @@ export default function SubscribeButton({
     setLoading(true);
     setStatus(null);
     try {
-      const r = await fetch("/api/razorpay/subscribe", {
+      const r = await fetch(`${FN}/seniqify-create-subscription`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ plan }),
       });
       const data = await r.json();
 
-      // Payments not configured yet → fall back to WhatsApp.
-      if (!data.configured) {
+      // No subscription returned → fall back to WhatsApp.
+      if (!data.subscription_id) {
         window.open(
           `https://wa.me/918625060631?text=${encodeURIComponent(
             `Hi! I'd like to subscribe to the ${plan} WhatsApp API plan.`
@@ -73,19 +74,18 @@ export default function SubscribeButton({
         setLoading(false);
         return;
       }
-      if (!data.subscriptionId) throw new Error("No subscription");
 
       const ok = await loadScript();
       if (!ok || !window.Razorpay) throw new Error("Checkout failed to load");
 
       const rzp = new window.Razorpay({
-        key: data.keyId,
-        subscription_id: data.subscriptionId,
+        key: data.key_id,
+        subscription_id: data.subscription_id,
         name: "Seniqify",
         description: `WhatsApp API — ${plan} plan`,
         theme: { color: "#25d366" },
         handler: async (resp) => {
-          await fetch("/api/razorpay/verify", {
+          await fetch(`${FN}/seniqify-verify-payment`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(resp),
